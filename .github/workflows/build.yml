@@ -28,7 +28,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install "cython<3.0.0" buildozer kivy requests
 
-    - name: Build APK with Buildozer
+    - name: Auto Accept Android Licenses
+      run: |
+        mkdir -p ~/.buildozer/android/platform/android-sdk/licenses
+        echo -e "89330d171ced9910b7023b28b173f18715bc3480\nd56f5187479451eabf01fb78af6dfcb131a6481e\n24731062070000ba2ee6ed176974c5d8a9284242" > ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
+        echo -e "84831b9409646a918e30573bab4c9c91346d8abd" > ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-preview-license
+
+    - name: Build APK
       run: |
         buildozer -v android debug
 
