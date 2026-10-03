@@ -1,5 +1,5 @@
 [app]
-title = AH : Irfan Weather
+title = AH Irfan Weather
 package.name = weatherapp
 package.domain = com.irfan
 source.dir = .
