@@ -30,7 +30,10 @@ jobs:
 
     - name: Build APK with Buildozer
       run: |
-        yes | buildozer -v android debug
+        buildozer -v android debug
 
     - name: Upload APK Artifact
-      uses: actions/upload-a
+      uses: actions/upload-artifact@v4
+      with:
+        name: AH-Irfan-Weather-APK
+        path: bin/*.apk
